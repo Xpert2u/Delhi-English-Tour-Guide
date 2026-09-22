@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Delhi English Tour Guide</title>
+
+<style>
+
+/* =========================
+   BASIC
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#111;
+    color:#eee;
+    line-height:1.6;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+img{
+    display:block;
+    width:100%;
+}
+
+:root{
+    --bg:#111;
+    --bg2:#181818;
+    --bg3:#202020;
+    --text:#f2f2f2;
+    --muted:#999;
+    --border:#303030;
+    --green:#25d366;
+    --accent:#d4a94d;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:100;
+    background:rgba(10,10,10,.65);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav-inner{
+    width:min(1100px,calc(100% - 40px));
+    height:72px;
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    gap:30px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo-box{
+    width:35px;
+    height:35px;
+
+    display:grid;
+    place-items:center;
+
+    border:1px solid #777;
+
+    font-size:13px;
+    font-weight:bold;
+}
+
+.logo-text{
+    display:flex;
+    flex-direction:column;
+    line-height:1.1;
+}
+
+.logo-text strong{
+    font-size:13px;
+}
+
+.logo-text small{
+    margin-top:4px;
+
+    font-size:8px;
+    letter-spacing:1.5px;
+    color:#888;
+}
+
+.nav-links{
+    margin-left:auto;
+
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.nav-links a{
+    color:#aaa;
+    font-size:12px;
+}
+
+.nav-links a:hover{
+    color:#fff;
+}
+
+.nav-book{
+    padding:9px 15px;
+
+    border:1px solid #555;
+
+    font-size:11px;
+}
+
+.nav-book:hover{
+    background:#fff;
+    color:#111;
+}
+
+.menu-btn{
+    display:none;
+
+    margin-left:auto;
+
+    border:0;
+    background:none;
+    cursor:pointer;
+}
+
+.menu-btn span{
+    display:block;
+
+    width:23px;
+    height:2px;
+
+    margin:5px 0;
+
+    background:#fff;
+}
+
+.mobile-menu{
+    display:none;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    position:relative;
+
+    height:650px;
+
+    overflow:hidden;
+}
+
+.hero-image{
+    position:absolute;
+    inset:0;
+}
+
+.hero-image img{
+    height:100%;
+    width:100%;
+
+    object-fit:cover;
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+
+    background:rgba(0,0,0,.68);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+
+    width:min(1100px,calc(100% - 40px));
+
+    height:100%;
+
+    margin:auto;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    padding-top:40px;
+}
+
+.hero-small{
+    color:#aaa;
+
+    font-size:10px;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    margin-bottom:18px;
+}
+
+.hero h1{
+    max-width:700px;
+
+    font-size:clamp(45px,7vw,78px);
+
+    line-height:1.02;
+
+    font-weight:700;
+
+    letter-spacing:-2px;
+}
+
+.hero h1 span{
+    color:var(--accent);
+}
+
+.hero-text{
+    max-width:500px;
+
+    margin-top:20px;
+
+    color:#aaa;
+
+    font-size:14px;
+}
+
+.hero-buttons{
+    display:flex;
+
+    gap:10px;
+
+    margin-top:28px;
+}
+
+.btn{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:12px 20px;
+
+    font-size:12px;
+
+    border:1px solid #555;
+
+    transition:.2s;
+}
+
+.btn-primary{
+    background:#fff;
+    color:#111;
+
+    border-color:#fff;
+}
+
+.btn-primary:hover{
+    background:#ddd;
+}
+
+.btn-secondary{
+    color:#fff;
+}
+
+.btn-secondary:hover{
+    background:#222;
+}
+
+
+/* =========================
+   COMMON
+========================= */
+
+.container{
+    width:min(1100px,calc(100% - 40px));
+
+    margin:auto;
+}
+
+section{
+    border-bottom:1px solid var(--border);
+}
+
+.section{
+    padding:85px 0;
+}
+
+.label{
+    color:var(--accent);
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:12px;
+}
+
+.title{
+    font-size:40px;
+
+    line-height:1.15;
+
+    font-weight:600;
+}
+
+.muted{
+    color:var(--muted);
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:80px;
+}
+
+.intro-text{
+    padding-top:25px;
+}
+
+.intro-text p{
+    color:#999;
+
+    font-size:14px;
+
+    margin-bottom:15px;
+}
+
+.simple-link{
+    display:inline-block;
+
+    margin-top:10px;
+
+    color:#fff;
+
+    font-size:12px;
+
+    border-bottom:1px solid #777;
+
+    padding-bottom:3px;
+}
+
+
+/* =========================
+   SERVICES
+========================= */
+
+.services{
+    background:#151515;
+}
+
+.service-grid{
+    margin-top:40px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    border-top:1px solid var(--border);
+    border-left:1px solid var(--border);
+}
+
+.service{
+    min-height:250px;
+
+    padding:25px;
+
+    border-right:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+}
+
+.service-number{
+    color:#555;
+
+    font-size:11px;
+
+    margin-bottom:55px;
+}
+
+.service h3{
+    font-size:19px;
+
+    margin-bottom:10px;
+}
+
+.service p{
+    color:#888;
+
+    font-size:12px;
+
+    line-height:1.8;
+}
+
+
+/* =========================
+   PLACES
+========================= */
+
+.places-grid{
+    margin-top:40px;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:15px;
+}
+
+.place{
+    background:#181818;
+
+    border:1px solid var(--border);
+
+    overflow:hidden;
+}
+
+.place-image{
+    height:240px;
+
+    position:relative;
+}
+
+.place-image img{
+    height:100%;
+
+    object-fit:cover;
+
+    opacity:.85;
+
+    transition:.3s;
+}
+
+.place:hover img{
+    opacity:1;
+}
+
+.place-info{
+    padding:22px;
+}
+
+.place-location{
+    color:var(--accent);
+
+    font-size:9px;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+}
+
+.place h3{
+    margin-top:7px;
+
+    font-size:21px;
+}
+
+.place p{
+    color:#888;
+
+    font-size:12px;
+
+    margin-top:10px;
+}
+
+.place-button{
+    display:inline-block;
+
+    margin-top:18px;
+
+    color:#fff;
+
+    font-size:11px;
+
+    border-bottom:1px solid #666;
+
+    padding-bottom:3px;
+}
+
+
+/* =========================
+   WHY
+========================= */
+
+.why{
+    background:#151515;
+}
+
+.why-grid{
+    display:grid;
+
+    grid-template-columns:.9fr 1.1fr;
+
+    gap:100px;
+}
+
+.why-title{
+    font-size:42px;
+
+    line-height:1.15;
+}
+
+.why-list{
+    border-top:1px solid var(--border);
+}
+
+.why-item{
+    display:grid;
+
+    grid-template-columns:40px 1fr;
+
+    gap:15px;
+
+    padding:22px 0;
+
+    border-bottom:1px solid var(--border);
+}
+
+.why-number{
+    color:var(--accent);
+
+    font-size:10px;
+}
+
+.why-item h3{
+    font-size:17px;
+
+    margin-bottom:5px;
+}
+
+.why-item p{
+    color:#888;
+
+    font-size:12px;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+    padding:90px 20px;
+
+    text-align:center;
+}
+
+.cta h2{
+    font-size:45px;
+
+    line-height:1.1;
+}
+
+.cta p{
+    max-width:500px;
+
+    margin:15px auto;
+
+    color:#888;
+
+    font-size:13px;
+}
+
+.cta-button{
+    display:inline-block;
+
+    margin-top:15px;
+
+    padding:12px 22px;
+
+    background:#fff;
+
+    color:#111;
+
+    font-size:12px;
+}
+
+.cta-button:hover{
+    background:#ddd;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#0b0b0b;
+
+    padding:55px 0 20px;
+}
+
+.footer-grid{
+    width:min(1100px,calc(100% - 40px));
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1.5fr 1fr 1fr;
+
+    gap:40px;
+
+    padding-bottom:40px;
+}
+
+.footer-about p{
+    color:#666;
+
+    font-size:11px;
+
+    max-width:250px;
+
+    margin-top:15px;
+}
+
+.footer-links{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:9px;
+}
+
+.footer-links a{
+    color:#777;
+
+    font-size:11px;
+}
+
+.footer-links a:hover{
+    color:#fff;
+}
+
+.footer-contact-title{
+    color:#666;
+
+    font-size:8px;
+
+    letter-spacing:1.5px;
+
+    margin-bottom:10px;
+}
+
+.footer-phone{
+    font-size:18px;
+}
+
+.footer-bottom{
+    width:min(1100px,calc(100% - 40px));
+
+    margin:auto;
+
+    padding-top:18px;
+
+    border-top:1px solid #222;
+
+    color:#555;
+
+    font-size:9px;
+
+    display:flex;
+
+    justify-content:space-between;
+}
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp{
+    position:fixed;
+
+    right:20px;
+    bottom:20px;
+
+    z-index:500;
+
+    width:55px;
+    height:55px;
+
+    border-radius:50%;
+
+    background:#25d366;
+
+    display:grid;
+
+    place-items:center;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.4);
+
+    transition:.2s;
+}
+
+.whatsapp:hover{
+    transform:scale(1.07);
+}
+
+.whatsapp svg{
+    width:28px;
+    height:28px;
+
+    fill:#fff;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px){
+
+    .nav-links,
+    .nav-book{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .mobile-menu{
+        position:absolute;
+
+        left:15px;
+        right:15px;
+
+        top:65px;
+
+        background:#181818;
+
+        border:1px solid #333;
+    }
+
+    .mobile-menu.active{
+        display:flex;
+
+        flex-direction:column;
+    }
+
+    .mobile-menu a{
+        padding:13px 15px;
+
+        color:#bbb;
+
+        font-size:12px;
+
+        border-bottom:1px solid #292929;
+    }
+
+    .mobile-menu a:hover{
+        color:#fff;
+    }
+
+    .hero{
+        height:620px;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+
+    .intro-grid,
+    .why-grid{
+        grid-template-columns:1fr;
+
+        gap:35px;
+    }
+
+    .service-grid{
+        grid-template-columns:1fr;
+    }
+
+    .places-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer-contact{
+        grid-column:span 2;
+    }
+
+}
+
+
+@media(max-width:550px){
+
+    .container,
+    .nav-inner,
+    .hero-content,
+    .footer-grid,
+    .footer-bottom{
+        width:calc(100% - 30px);
+    }
+
+    .hero{
+        height:610px;
+    }
+
+    .hero-content{
+        padding-top:30px;
+    }
+
+    .hero h1{
+        font-size:43px;
+
+        letter-spacing:-1.5px;
+    }
+
+    .hero-text{
+        font-size:13px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+    .btn{
+        width:100%;
+
+        max-width:260px;
+    }
+
+    .section{
+        padding:65px 0;
+    }
+
+    .title{
+        font-size:34px;
+    }
+
+    .why-title{
+        font-size:35px;
+    }
+
+    .cta h2{
+        font-size:38px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-contact{
+        grid-column:auto;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+
+        gap:7px;
+    }
+
+}
+
+
+/* =========================
+   SIMPLE FADE
+========================= */
+
+.fade{
+    opacity:0;
+
+    transform:translateY(15px);
+
+    transition:.6s;
+}
+
+.fade.show{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header class="navbar">
+
+    <div class="nav-inner">
+
+        <a href="#home" class="logo">
+
+            <div class="logo-box">
+                DE
+            </div>
+
+            <div class="logo-text">
+                <strong>Delhi English</strong>
+                <small>Tour Guide</small>
+            </div>
+
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a href="#home">Home</a>
+
+            <a href="#services">Services</a>
+
+            <a href="#places">Places</a>
+
+            <a href="#why">Why Us</a>
+
+        </nav>
+
+
+        <a
+            class="nav-book"
+            target="_blank"
+            href="https://wa.me/919953006081?text=Hello%20Delhi%20English%20Tour%20Guide%2C%20I%20would%20like%20to%20book%20a%20guide."
+        >
+            Book Guide
+        </a>
+
+
+        <button class="menu-btn" id="menuBtn">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </div>
+
+
+    <div class="mobile-menu" id="mobileMenu">
+
+        <a href="#home">Home</a>
+
+        <a href="#services">Services</a>
+
+        <a href="#places">Places</a>
+
+        <a href="#why">Why Us</a>
+
+        <a
+            target="_blank"
+            href="https://wa.me/919953006081?text=Hello%20Delhi%20English%20Tour%20Guide%2C%20I%20would%20like%20to%20book%20a%20guide."
+        >
+            Book Guide
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-image">
+
+        <img
+            src="https://static2.tripoto.com/media/filter/tst/img/748597/TripDocument/1586325774_dsc08173.jpg"
+            alt="Jama Masjid and Chandni Chowk"
+        >
+
+    </div>
+
+
+    <div class="hero-overlay"></div>
+
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            English Speaking Guides in Delhi
+        </div>
+
+
+        <h1>
+            Explore Delhi.<br>
+            <span>Speak Freely.</span>
+        </h1>
+
+
+        <p class="hero-text">
+            Friendly local translators and tour companions
+            for visitors exploring Delhi.
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                class="btn btn-primary"
+                target="_blank"
+                href="https://wa.me/919953006081?text=Hello%20Delhi%20English%20Tour%20Guide%2C%20I%20would%20like%20to%20book%20a%20guide."
+            >
+                Book a Guide
+            </a>
+
+
+            <a
+                class="btn btn-secondary"
+                href="#places"
+            >
+                View Places
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INTRO
+========================= -->
+
+<section class="section">
+
+    <div class="container intro-grid">
+
+        <div>
+
+            <div class="label">
+                OUR SERVICE
+            </div>
+
+            <h2 class="title">
+                A local person<br>
+                by your side.
+            </h2>
+
+        </div>
+
+
+        <div class="intro-text">
+
+            <p>
+                Visiting Delhi should be exciting, not stressful.
+                Our English-speaking guides help visitors communicate
+                with locals and move around the city comfortably.
+            </p>
+
+            <p>
+                Whether you want to explore monuments, markets,
+                food streets or everyday Delhi, we are here to help.
+            </p>
+
+
+            <a
+                class="simple-link"
+                target="_blank"
+                href="https://wa.me/919953006081?text=Hello%20Delhi%20English%20Tour%20Guide%2C%20I%20would%20like%20more%20information."
+            >
+                Talk to us →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SERVICES
+========================= -->
+
+<section class="section services" id="services">
+
+    <div class="container">
+
+        <div class="label">
+            WHAT WE OFFER
+        </div>
+
+        <h2 class="title">
+            Simple help for your trip.
+        </h2>
+
+
+        <div class="service-grid">
+
+            <div class="service fade">
+
+                <div class="service-number">
+                    01
+                </div>
+
+                <h3>
+                    English Translation
+                </h3>
+
+                <p>
+                    Communicate with local people,
+                    shopkeepers, drivers and restaurants
+                    without worrying about the language barrier.
+                </p>
+
+            </div>
+
+
+            <div class="service fade">
+
+                <div class="service-number">
+                    02
+                </div>
+
+                <h3>
+                    Local Tour Companion
+                </h3>
+
+                <p>
+                    Explore Delhi with a local person who can
+                    help you understand the places and culture.
+                </p>
+
+            </div>
+
+
+            <div class="service fade">
+
+                <div class="service-number">
+                    03
+                </div>
+
+                <h3>
+                    Market & Food Help
+                </h3>
+
+                <p>
+                    Visit local markets and food streets while
+                    having someone to help with communication.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PLACES
+========================= -->
+
+<section class="section" id="places">
+
+    <div class="container">
+
+        <div class="label">
+            PLACES
+        </div>
+
+        <h2 class="title">
+            Discover Delhi.
+        </h2>
+
+
+        <div class="places-grid">
+
+
+            <!-- JAMA MASJID -->
+
+            <article class="place fade">
+
+                <div class="place-image">
+
+                    <img
+                        src="https://static2.tripoto.com/media/filter/tst/img/748597/TripDocument/1586325774_dsc08173.jpg"
+                        alt="Jama Masjid and Chandni Chowk"
+                    >
+
+                </div>
+
+
+                <div class="place-info">
+
+                    <div class="place-location">
+                        OLD DELHI
+                    </div>
+
+                    <h3>
+                        Jama Masjid & Chandni Chowk
+                    </h3>
+
+                    <p>
+                        Historic streets, local markets,
+                        architecture and famous Delhi food.
+                    </p>
+
+
+                    <a
+                        class="place-button"
+                        target="_blank"
+                        href="https://wa.me/919953006081?text=Hello%20Delhi%20English%20Tour%20Guide%2C%20I%20want%20a%20guide%20for%20Jama%20Masjid%20and%20Chandni%20Chowk."
+                    >
+                        Book Guide →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- QUTUB -->
+
+            <article class="place fade">
+
+                <div class="place-image">
+
+                    <img
+                        src="https://www.vacationindia.com/wp-content/uploads/2022/05/50-qutub-minar-complex-new-delhi.jpg"
+                        alt="Qutub Minar"
+                    >
+
+                </div>
+
+
+                <div class="place-info">
+
+                    <div class="place-location">
+                        SOUTH DELHI
+                    </div>
+
+                    <h3>
+                        Qutub Minar
+                    </h3>
+
+                    <p>
+                        Explore one of Delhi's most famous
+                        historic monuments.
+                    </p>
+
+
+                    <a
+                        class="place-button"
+                        target="_blank"
+                        href="https://wa.me/919953006081?text=Hello%20Delhi%20English%20Tour%20Guide%2C%20I%20want%20a%20guide%20for%20Qutub%20Minar."
+                    >
+                        Book Guide →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- HUMAYUN -->
+
+            <article class="place fade">
+
+                <div class="place-image">
+
+                    <img
+                        src="https://images.squarespace-cdn.com/content/v1/6298cb774cf3830bc9b342bf/1686821873057-GC66MGFKTZ9BC0FP0P23/humayans-tomb-1.jpg"
+                        alt="Humayun's Tomb"
+                    >
+
+                </div>
+
+
+                <div class="place-info">
+
+                    <div class="place-location">
+                        CENTRAL DELHI
+                    </div>
+
+                    <h3>
+                        Humayun's Tomb
+                    </h3>
+
+                    <p>
+                        Discover beautiful Mughal architecture
+                        and peaceful gardens.
+                    </p>
+
+
+                    <a
+                        class="place-button"
+                        target="_blank"
+                        href="https://wa.me/919953006081?text=Hello%20Delhi%20English%20Tour%20Guide%2C%20I%20want%20a%20guide%20for%20Humayuns%20Tomb."
+                    >
+                        Book Guide →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- INDIA GATE -->
+
+            <article class="place fade">
+
+                <div class="place-image">
+
+                    <img
+                        src="https://www.trawell.in/admin/images/upload/078212929Delhi_India_Gate_Main.jpg"
+                        alt="India Gate"
+                    >
+
+                </div>
+
+
+                <div class="place-info">
+
+                    <div class="place-location">
+                        NEW DELHI
+                    </div>
+
+                    <h3>
+                        India Gate
+                    </h3>
+
+                    <p>
+                        Visit one of New Delhi's best-known
+                        landmarks.
+                    </p>
+
+
+                    <a
+                        class="place-button"
+                        target="_blank"
+                        href="https://wa.me/919953006081?text=Hello%20Delhi%20English%20Tour%20Guide%2C%20I%20want%20a%20guide%20for%20India%20Gate."
+                    >
+                        Book Guide →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- MARKET -->
+
+            <article class="place fade">
+
+                <div class="place-image">
+
+                    <img
+                        src="https://static.thehosteller.com/hostel/images/featuredb.jpg/featuredb-1718776147163.jpg"
+                        alt="Delhi markets and food"
+                    >
+
+                </div>
+
+
+                <div class="place-info">
+
+                    <div class="place-location">
+                        MARKETS & FOOD
+                    </div>
+
+                    <h3>
+                        Markets & Indian Food
+                    </h3>
+
+                    <p>
+                        Experience Delhi's colourful markets
+                        and local food culture.
+                    </p>
+
+
+                    <a
+                        class="place-button"
+                        target="_blank"
+                        href="https://wa.me/919953006081?text=Hello%20Delhi%20English%20Tour%20Guide%2C%20I%20want%20a%20guide%20for%20Delhi%20markets%20and%20food."
+                    >
+                        Book Guide →
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     WHY US
+========================= -->
+
+<section class="section why" id="why">
+
+    <div class="container why-grid">
+
+        <div>
+
+            <div class="label">
+                WHY US
+            </div>
+
+            <h2 class="why-title">
+                Explore Delhi
+                without the
+                language stress.
+            </h2>
+
+
+            <a
+                class="btn btn-primary"
+                style="margin-top:30px;"
+                target="_blank"
+                href="https://wa.me/919953006081?text=Hello%20Delhi%20English%20Tour%20Guide%2C%20I%20would%20like%20to%20book%20a%20guide."
+            >
+                Book a Guide
+            </a>
+
+        </div>
+
+
+        <div class="why-list">
+
+            <div class="why-item fade">
+
+                <div class="why-number">
+                    01
+                </div>
+
+                <div>
+
+                    <h3>
+                        Easy communication
+                    </h3>
+
+                    <p>
+                        Speak English while we help you
+                        communicate locally.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="why-item fade">
+
+                <div class="why-number">
+                    02
+                </div>
+
+                <div>
+
+                    <h3>
+                        Local assistance
+                    </h3>
+
+                    <p>
+                        Get practical help while exploring
+                        the city.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="why-item fade">
+
+                <div class="why-number">
+                    03
+                </div>
+
+                <div>
+
+                    <h3>
+                        No complicated forms
+                    </h3>
+
+                    <p>
+                        Just contact us on WhatsApp and
+                        tell us what you need.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="why-item fade">
+
+                <div class="why-number">
+                    04
+                </div>
+
+                <div>
+
+                    <h3>
+                        Flexible visits
+                    </h3>
+
+                    <p>
+                        Choose the places and experiences
+                        you want to explore.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <div class="label">
+            READY TO EXPLORE?
+        </div>
+
+        <h2>
+            Let's explore Delhi.
+        </h2>
+
+        <p>
+            Contact us directly on WhatsApp to arrange
+            an English-speaking local guide.
+        </p>
+
+
+        <a
+            class="cta-button"
+            target="_blank"
+            href="https://wa.me/919953006081?text=Hello%20Delhi%20English%20Tour%20Guide%2C%20I%20am%20visiting%20Delhi%20and%20would%20like%20to%20book%20a%20guide."
+        >
+            WhatsApp Us →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div class="footer-about">
+
+            <a href="#home" class="logo">
+
+                <div class="logo-box">
+                    DE
+                </div>
+
+                <div class="logo-text">
+                    <strong>Delhi English</strong>
+                    <small>Tour Guide</small>
+                </div>
+
+            </a>
+
+
+            <p>
+                English-speaking local assistance
+                for visitors exploring Delhi.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#services">
+                Services
+            </a>
+
+            <a href="#places">
+                Places
+            </a>
+
+            <a href="#why">
+                Why Us
+            </a>
+
+        </div>
+
+
+        <div class="footer-contact">
+
+            <div class="footer-contact-title">
+                BOOKINGS & ENQUIRIES
+            </div>
+
+            <a
+                class="footer-phone"
+                target="_blank"
+                href="https://wa.me/919953006081?text=Hello%20Delhi%20English%20Tour%20Guide."
+            >
+                +91 99530 06081
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>
+            © 2026 Delhi English Tour Guide
+        </span>
+
+        <span>
+            Delhi, India
+        </span>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     WHATSAPP FLOAT
+========================= -->
+
+<a
+    class="whatsapp"
+    target="_blank"
+    aria-label="WhatsApp"
+    href="https://wa.me/919953006081?text=Hello%20Delhi%20English%20Tour%20Guide%2C%20I%20would%20like%20to%20book%20a%20guide."
+>
+
+    <svg viewBox="0 0 32 32">
+
+        <path d="M16 3C8.82 3 3 8.82 3 16c0 2.3.6 4.45 1.75 6.38L3.05 29l6.78-1.68A12.94 12.94 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3Zm0 23.65c-2.04 0-4.05-.55-5.81-1.59l-.42-.25-4.02 1 1.01-3.92-.27-.43A10.72 10.72 0 1 1 16 26.65Zm5.87-7.98c-.32-.16-1.89-.94-2.18-1.05-.29-.1-.5-.16-.71.16-.21.32-.81 1.05-.99 1.27-.18.21-.36.24-.68.08-.32-.16-1.35-.5-2.58-1.59-.95-.84-1.59-1.88-1.77-2.2-.18-.32-.02-.49.14-.65.15-.15.32-.37.47-.55.16-.18.21-.32.32-.53.11-.21.05-.39-.03-.55-.08-.16-.71-1.73-.97-2.37-.26-.63-.52-.55-.71-.56h-.6c-.21 0-.55.08-.84.39-.29.32-1.1 1.08-1.1 2.63s1.13 3.05 1.29 3.26c.16.21 2.22 3.39 5.37 4.75.75.32 1.33.51 1.78.65.75.24 1.44.21 1.98.13.6-.09 1.89-.77 2.16-1.52.26-.74.26-1.38.18-1.52-.08-.13-.29-.21-.6-.37Z"/>
+
+    </svg>
+
+</a>
+
+
+<script>
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+menuBtn.addEventListener("click",function(){
+
+    mobileMenu.classList.toggle("active");
+
+});
+
+
+document.querySelectorAll(".mobile-menu a").forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        mobileMenu.classList.remove("active");
+
+    });
+
+});
+
+
+/* =========================
+   SIMPLE SCROLL ANIMATION
+========================= */
+
+const fadeElements =
+document.querySelectorAll(".fade");
+
+
+const observer =
+new IntersectionObserver(function(entries){
+
+    entries.forEach(function(entry){
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+            observer.unobserve(entry.target);
+
+        }
+
+    });
+
+},{
+    threshold:.1
+});
+
+
+fadeElements.forEach(function(element){
+
+    observer.observe(element);
+
+});
+
+</script>
+
+</body>
+</html>
